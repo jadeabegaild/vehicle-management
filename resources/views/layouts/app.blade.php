@@ -22,7 +22,14 @@
         <div class="min-vh-100 bg-light">
            
 
-            <!-- bago tinanggal header -->
+            <!-- Page Heading -->
+            @isset($header)
+                <header class="bg-white shadow-sm mb-4">
+                    <div class="container py-3">
+                        <h1>{{ $header }}</h1>
+                    </div>
+                </header>
+            @endisset
 
             <!-- Page Content -->
             <main class="container">

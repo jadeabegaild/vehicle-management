@@ -34,6 +34,6 @@ class VehicleController extends Controller
 
         Vehicle::create($request->all());
 
-        return redirect()->route('vehicles.create')->with('success', 'Vehicle added successfully!');
+        return redirect()->route('vehicles.index')->with('success', 'Vehicle added successfully!');
     }
 }

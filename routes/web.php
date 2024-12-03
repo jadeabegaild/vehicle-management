@@ -5,17 +5,11 @@ use App\Http\Controllers\VehicleController;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\VehicleController;
 
-// bago
-// Route::middleware(['auth'])->group(function () {
-//     Route::get('/vehicles', [VehicleController::class, 'index'])->name('vehicles.index');
-// });
+Route::get('/vehicles', [VehicleController::class, 'index'])->name('vehicles.index');
 
 Route::get('/', function () {
     return view('auth.login');
 });
-
-Route::get('/vehicles', [VehicleController::class, 'index'])->name('vehicles.index');
-
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -31,8 +25,8 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     // Route::get('/admin/vehicles', [VehicleController::class, 'index'])->name('vehicles.index');
-    Route::get('/vehicles/create', [VehicleController::class, 'create'])->name('vehicles.create');
-    Route::post('vehicles', [VehicleController::class, 'store'])->name('vehicles.store');
+    Route::get('/admin/vehicles/create', [VehicleController::class, 'create'])->name('vehicles.create');
+    Route::post('/admin/vehicles', [VehicleController::class, 'store'])->name('vehicles.store');
 });
 
 // use App\Http\Controllers\RentalController;
@@ -40,12 +34,12 @@ Route::middleware(['auth'])->group(function () {
 // use App\Http\Controllers\ReportController;
 // use App\Http\Controllers\SettingController;
 
-// Route::middleware(['auth', 'admin'])->group(function () {
-    // Route::get('/admin/rentals', [RentalController::class, 'index'])->name('rentals.index');
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin/rentals', [RentalController::class, 'index'])->name('rentals.index');
     // Route::get('/admin/users', [UserController::class, 'index'])->name('users.index');
     // Route::get('/admin/reports', [ReportController::class, 'index'])->name('reports.index');
     // Route::get('/admin/settings', [SettingController::class, 'index'])->name('settings.index');
-// });
+});
 
 
 
